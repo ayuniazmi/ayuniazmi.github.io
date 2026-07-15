@@ -174,6 +174,21 @@ p{ line-height:1.7; font-size:15.5px; }
 .pcard dd{ margin:2px 0 0 0; opacity:0.85; }
 
 /* JOURNAL */
+.journal-list{ display:flex; flex-direction:column; gap:18px; }
+.jcard{
+  border:1.5px solid var(--card-border); border-radius:18px; background:var(--card-bg); padding:26px;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.jcard:hover{ transform:translateY(-4px); box-shadow:var(--shadow-glow); border-color:var(--purple); }
+.jcard .jdate{
+  font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--pink-deep); margin-bottom:8px;
+}
+.jcard h3{ font-size:19px; margin-bottom:10px; }
+.jcard p{ opacity:0.85; margin-bottom:0; }
+.jcard p + p{ margin-top:12px; }
+.jcard .tagrow{ margin-top:16px; }
+
 .empty{
   border:1.5px dashed var(--purple); border-radius:18px; padding:40px; text-align:center; color:var(--ink);
   opacity:0.85; background:var(--gradient-soft);

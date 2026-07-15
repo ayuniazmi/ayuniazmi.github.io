@@ -180,11 +180,26 @@
       <div class="eyebrow">Architecture Journal</div>
       <h2>Weekly notes on what I'm learning and building.</h2>
       <span class="sticker" style="margin-bottom:24px;">Building in Public ✨</span>
-      <div class="empty">
-        <div class="eyebrow">First entry coming soon</div>
-        <p style="max-width:420px; margin:0 auto;">One real entry a week, published every Sunday —
-        synthesised from daily learning logs. Nothing here yet because nothing's been published yet.
-        Check back soon.</p>
+
+      <!--
+        JOURNAL ENTRIES — newest first.
+        To add a new entry, insert a .jcard block right here (above any existing ones)
+        using this shape, then delete #journalEmpty below once there's at least one entry:
+
+        <div class="jcard">
+          <div class="jdate">JUL 20, 2026</div>
+          <h3>Entry title</h3>
+          <p>Entry body — a few paragraphs of what you learned/built this week.</p>
+          <div class="tagrow"><span>AWS</span><span>RAG</span></div>
+        </div>
+      -->
+      <div class="journal-list" id="journalList">
+        <div class="empty" id="journalEmpty">
+          <div class="eyebrow">First entry coming soon</div>
+          <p style="max-width:420px; margin:0 auto;">One real entry a week, published every Sunday —
+          synthesised from daily learning logs. Nothing here yet because nothing's been published yet.
+          Check back soon.</p>
+        </div>
       </div>
     </section>
 
