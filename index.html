@@ -9,6 +9,12 @@
 </head>
 <body>
 
+<div class="blobs" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+</div>
+
 <div class="topnav">
   <div class="wrap">
     <div class="brand">AYUNI <span>AZMI</span></div>
@@ -29,8 +35,10 @@
 
     <!-- HOME -->
     <section id="home" class="active">
+      <span class="sparkle s1">✨</span>
+      <span class="sparkle s3">✨</span>
       <div class="eyebrow">Business Analyst · Cloud &amp; AI · Solutions Architect (in progress)</div>
-      <h1>I turn messy requirements<br>into systems that ship.</h1>
+      <h1>I turn messy requirements<br>into <span class="grad">systems that ship.</span></h1>
       <p class="lede">Former educator, former Google Cloud engineer, now a Business Analyst on
       government-scale AI programs at NCS. Building in public toward Solutions Architecture and
       Forward Deployed Engineering — one shipped project and one honest write-up at a time.</p>
@@ -41,30 +49,45 @@
         <a class="btn" href="https://linkedin.com/in/ayuniazmi" target="_blank" rel="noopener">LinkedIn</a>
       </div>
 
+      <div style="margin-top:28px;">
+        <span class="sticker">She Builds ⚡</span>
+      </div>
+
       <div class="schematic">
+        <span class="sparkle s2">✨</span>
+        <span class="sparkle s4">✨</span>
         <svg viewBox="0 0 800 150" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-          <line x1="40" y1="75" x2="760" y2="75" stroke="#B7CEDD" stroke-width="2" stroke-dasharray="1 8"/>
+          <defs>
+            <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#FF2D8A"/>
+              <stop offset="55%" stop-color="#8B2FF8"/>
+              <stop offset="100%" stop-color="#00D2D3"/>
+            </linearGradient>
+          </defs>
+          <line x1="40" y1="75" x2="760" y2="75" stroke="url(#pathGrad)" stroke-width="2" stroke-dasharray="1 8" opacity="0.6"/>
           <!-- nodes -->
           <g font-family="IBM Plex Mono, monospace" font-size="10">
-            <circle cx="40" cy="75" r="7" fill="#2C5F8A"/>
-            <text x="40" y="105" text-anchor="middle" fill="#182B3D" opacity="0.8">MOE</text>
-            <text x="40" y="118" text-anchor="middle" fill="#182B3D" opacity="0.5">2017–25</text>
+            <circle cx="40" cy="75" r="7" fill="#FF2D8A"/>
+            <text x="40" y="105" text-anchor="middle" fill="#1B0E23" opacity="0.8">MOE</text>
+            <text x="40" y="118" text-anchor="middle" fill="#1B0E23" opacity="0.5">2017–25</text>
 
-            <circle cx="230" cy="75" r="7" fill="#2C5F8A"/>
-            <text x="230" y="105" text-anchor="middle" fill="#182B3D" opacity="0.8">GXS BANK</text>
-            <text x="230" y="118" text-anchor="middle" fill="#182B3D" opacity="0.5">2025</text>
+            <circle cx="230" cy="75" r="7" fill="#8B2FF8"/>
+            <text x="230" y="105" text-anchor="middle" fill="#1B0E23" opacity="0.8">GXS BANK</text>
+            <text x="230" y="118" text-anchor="middle" fill="#1B0E23" opacity="0.5">2025</text>
 
-            <circle cx="410" cy="75" r="7" fill="#2C5F8A"/>
-            <text x="410" y="105" text-anchor="middle" fill="#182B3D" opacity="0.8">GOOGLE</text>
-            <text x="410" y="118" text-anchor="middle" fill="#182B3D" opacity="0.5">2025–26</text>
+            <circle cx="410" cy="75" r="7" fill="#00D2D3"/>
+            <text x="410" y="105" text-anchor="middle" fill="#1B0E23" opacity="0.8">GOOGLE</text>
+            <text x="410" y="118" text-anchor="middle" fill="#1B0E23" opacity="0.5">2025–26</text>
 
-            <circle cx="590" cy="75" r="7" fill="#2C5F8A"/>
-            <text x="590" y="105" text-anchor="middle" fill="#182B3D" opacity="0.8">NCS</text>
-            <text x="590" y="118" text-anchor="middle" fill="#182B3D" opacity="0.5">2026–now</text>
+            <circle cx="590" cy="75" r="7" fill="#FF2D8A"/>
+            <text x="590" y="105" text-anchor="middle" fill="#1B0E23" opacity="0.8">NCS</text>
+            <text x="590" y="118" text-anchor="middle" fill="#1B0E23" opacity="0.5">2026–now</text>
 
-            <circle cx="760" cy="75" r="8" fill="none" stroke="#C4703B" stroke-width="2" stroke-dasharray="3 3"/>
-            <text x="760" y="105" text-anchor="middle" fill="#C4703B" font-weight="600">SA / FDE</text>
-            <text x="760" y="118" text-anchor="middle" fill="#C4703B" opacity="0.7">next</text>
+            <circle cx="760" cy="75" r="9" fill="none" stroke="#8B2FF8" stroke-width="2.5" stroke-dasharray="3 3">
+              <animate attributeName="r" values="9;12;9" dur="2.2s" repeatCount="indefinite"/>
+            </circle>
+            <text x="760" y="105" text-anchor="middle" fill="#8B2FF8" font-weight="700">SA / FDE</text>
+            <text x="760" y="118" text-anchor="middle" fill="#8B2FF8" opacity="0.8">next</text>
           </g>
         </svg>
         <div class="caption">FIG. 01 — CAREER SCHEMATIC, NOT TO SCALE</div>
@@ -75,6 +98,7 @@
     <section id="about">
       <div class="eyebrow">About</div>
       <h2>Eight years in a classroom taught me more about systems than any course did.</h2>
+      <span class="sticker alt" style="margin-bottom:24px;">Girl in Tech 💜</span>
       <div class="story">
         <p>I started as an educator with the Ministry of Education, spending close to eight years
         leading EdTech adoption across 80+ teachers and running a $50,000 annual overseas learning
@@ -113,7 +137,7 @@
       </p>
       <div class="pgrid">
         <div class="pcard">
-          <div class="status">In Progress</div>
+          <div class="status in-progress">In Progress</div>
           <h3>01 — Architecture Cost &amp; Tradeoff Generator</h3>
           <dl>
             <dt>Problem</dt><dd>Turn a system requirement into an AWS architecture diagram, service choices, rough cost estimate, and tradeoffs.</dd>
@@ -122,7 +146,7 @@
           </dl>
         </div>
         <div class="pcard">
-          <div class="status">Planned</div>
+          <div class="status planned">Planned</div>
           <h3>02 — RAG Evaluation Framework v2</h3>
           <dl>
             <dt>Problem</dt><dd>Production-grade rebuild of the Student Handbook RAG project — proper retrieval benchmarking and error analysis.</dd>
@@ -131,7 +155,7 @@
           </dl>
         </div>
         <div class="pcard">
-          <div class="status">Planned</div>
+          <div class="status planned">Planned</div>
           <h3>03 — AI Business Analyst Assistant</h3>
           <dl>
             <dt>Problem</dt><dd>Upload a BRD, generate use cases, acceptance criteria, and test cases.</dd>
@@ -140,7 +164,7 @@
           </dl>
         </div>
         <div class="pcard">
-          <div class="status">Planned</div>
+          <div class="status planned">Planned</div>
           <h3>04 — Agentic Meeting-to-Delivery Pipeline</h3>
           <dl>
             <dt>Problem</dt><dd>Meeting transcript → summary → action items → tickets.</dd>
@@ -155,6 +179,7 @@
     <section id="journal">
       <div class="eyebrow">Architecture Journal</div>
       <h2>Weekly notes on what I'm learning and building.</h2>
+      <span class="sticker" style="margin-bottom:24px;">Building in Public ✨</span>
       <div class="empty">
         <div class="eyebrow">First entry coming soon</div>
         <p style="max-width:420px; margin:0 auto;">One real entry a week, published every Sunday —
