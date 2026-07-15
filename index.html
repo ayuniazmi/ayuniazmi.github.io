@@ -56,41 +56,57 @@
       <div class="schematic">
         <span class="sparkle s2">✨</span>
         <span class="sparkle s4">✨</span>
-        <svg viewBox="0 0 800 150" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#FF2D8A"/>
-              <stop offset="55%" stop-color="#8B2FF8"/>
-              <stop offset="100%" stop-color="#00D2D3"/>
-            </linearGradient>
-          </defs>
-          <line x1="40" y1="75" x2="760" y2="75" stroke="url(#pathGrad)" stroke-width="2" stroke-dasharray="1 8" opacity="0.6"/>
-          <!-- nodes -->
-          <g font-family="IBM Plex Mono, monospace" font-size="10">
-            <circle cx="40" cy="75" r="7" fill="#FF2D8A"/>
-            <text x="40" y="105" text-anchor="middle" fill="#1B0E23" opacity="0.8">MOE</text>
-            <text x="40" y="118" text-anchor="middle" fill="#1B0E23" opacity="0.5">2017–25</text>
 
-            <circle cx="230" cy="75" r="7" fill="#8B2FF8"/>
-            <text x="230" y="105" text-anchor="middle" fill="#1B0E23" opacity="0.8">GXS BANK</text>
-            <text x="230" y="118" text-anchor="middle" fill="#1B0E23" opacity="0.5">2025</text>
+        <div class="timeline">
+          <div class="timeline-track"></div>
 
-            <circle cx="410" cy="75" r="7" fill="#00D2D3"/>
-            <text x="410" y="105" text-anchor="middle" fill="#1B0E23" opacity="0.8">GOOGLE</text>
-            <text x="410" y="118" text-anchor="middle" fill="#1B0E23" opacity="0.5">2025–26</text>
+          <div class="timeline-node" style="--accent: var(--pink);">
+            <div class="tl-bubble">🎓</div>
+            <div class="tl-body">
+              <div class="tl-role">Ministry of Education</div>
+              <div class="tl-dates">2017–2025</div>
+              <div class="tl-blurb">8 years leading EdTech adoption across 80+ teachers</div>
+            </div>
+          </div>
 
-            <circle cx="590" cy="75" r="7" fill="#FF2D8A"/>
-            <text x="590" y="105" text-anchor="middle" fill="#1B0E23" opacity="0.8">NCS</text>
-            <text x="590" y="118" text-anchor="middle" fill="#1B0E23" opacity="0.5">2026–now</text>
+          <div class="timeline-node" style="--accent: var(--purple);">
+            <div class="tl-bubble">🏦</div>
+            <div class="tl-body">
+              <div class="tl-role">GXS Bank</div>
+              <div class="tl-dates">2025</div>
+              <div class="tl-blurb">Data privacy &amp; AI governance in a regulated environment</div>
+            </div>
+          </div>
 
-            <circle cx="760" cy="75" r="9" fill="none" stroke="#8B2FF8" stroke-width="2.5" stroke-dasharray="3 3">
-              <animate attributeName="r" values="9;12;9" dur="2.2s" repeatCount="indefinite"/>
-            </circle>
-            <text x="760" y="105" text-anchor="middle" fill="#8B2FF8" font-weight="700">SA / FDE</text>
-            <text x="760" y="118" text-anchor="middle" fill="#8B2FF8" opacity="0.8">next</text>
-          </g>
-        </svg>
-        <div class="caption">FIG. 01 — CAREER SCHEMATIC, NOT TO SCALE</div>
+          <div class="timeline-node" style="--accent: var(--cyan);">
+            <div class="tl-bubble">☁️</div>
+            <div class="tl-body">
+              <div class="tl-role">Google</div>
+              <div class="tl-dates">2025–2026</div>
+              <div class="tl-blurb">Customer Engineer Trainee, Workspace &amp; Gemini</div>
+            </div>
+          </div>
+
+          <div class="timeline-node" style="--accent: var(--pink);">
+            <div class="tl-bubble">🏢</div>
+            <div class="tl-body">
+              <div class="tl-role">NCS</div>
+              <div class="tl-dates">2026–Now</div>
+              <div class="tl-blurb">Business Analyst on government-scale AI programs</div>
+            </div>
+          </div>
+
+          <div class="timeline-node next" style="--accent: var(--purple);">
+            <div class="tl-bubble">🚀</div>
+            <div class="tl-body">
+              <div class="tl-role">Solutions Architect / FDE</div>
+              <div class="tl-dates">Next</div>
+              <div class="tl-blurb">Where this whole site is headed</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption">FIG. 01 — CAREER TIMELINE, HOVER FOR DETAIL</div>
       </div>
     </section>
 
