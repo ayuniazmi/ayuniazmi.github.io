@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayuni Azmi — Business Analyst → Solutions Architect</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --paper:#FAFAF6;
+    --ink:#182B3D;
+    --blue:#2C5F8A;
+    --blue-light:#B7CEDD;
+    --blue-faint:#E4ECF1;
+    --rust:#C4703B;
+    --done:#4F7A5E;
+    --line: rgba(44,95,138,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/36px 36px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/36px 36px,
+      var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+  a{ color:var(--blue); }
+  .wrap{ max-width:880px; margin:0 auto; padding:0 24px; }
+
+  /* NAV */
+  .topnav{
+    position:sticky; top:0; z-index:50; background:rgba(250,250,246,0.92);
+    backdrop-filter:blur(6px); border-bottom:2px solid var(--blue);
+  }
+  .topnav .wrap{ display:flex; align-items:center; justify-content:space-between; padding:14px 24px; }
+  .brand{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; letter-spacing:-0.01em; }
+  .brand span{ color:var(--rust); }
+  .navlinks{ display:flex; gap:4px; flex-wrap:wrap; }
+  .navlinks button{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
+    background:none; border:none; padding:8px 12px; cursor:pointer; color:var(--ink); opacity:0.6;
+    border-bottom:2px solid transparent;
+  }
+  .navlinks button.active{ opacity:1; color:var(--blue); border-bottom-color:var(--rust); font-weight:600; }
+
+  main section{ display:none; padding:56px 0 64px 0; }
+  main section.active{ display:block; }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--rust); margin-bottom:14px;
+  }
+  h1{ font-family:'Space Grotesk',sans-serif; font-size:44px; line-height:1.1; margin:0 0 18px 0; font-weight:700; letter-spacing:-0.015em; }
+  h2{ font-family:'Space Grotesk',sans-serif; font-size:26px; margin:0 0 20px 0; font-weight:700; letter-spacing:-0.01em; }
+  h3{ font-family:'Space Grotesk',sans-serif; font-size:17px; margin:0 0 8px 0; font-weight:600; }
+  p{ line-height:1.7; font-size:15.5px; }
+  .lede{ font-size:18px; opacity:0.85; max-width:560px; margin-bottom:32px; }
+
+  .btnrow{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.04em; text-transform:uppercase;
+    padding:12px 20px; border:1.5px solid var(--blue); text-decoration:none; color:var(--blue);
+    display:inline-block; transition:all .15s ease;
+  }
+  .btn.solid{ background:var(--blue); color:#fff; }
+  .btn:hover{ background:var(--blue); color:#fff; }
+
+  /* HOME schematic */
+  .schematic{ margin-top:56px; }
+  .schematic .caption{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; opacity:0.5; margin-top:10px; }
+
+  /* ABOUT */
+  .story p{ max-width:640px; }
+  .pillars{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:36px; }
+  @media(max-width:700px){ .pillars{grid-template-columns:1fr 1fr;} }
+  .pillar{ border:1.5px solid var(--blue); padding:14px; background:rgba(255,255,255,0.5); }
+  .pillar .n{ font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--rust); }
+  .pillar .t{ font-size:13px; font-weight:600; margin-top:4px; }
+
+  /* PROJECTS */
+  .pgrid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media(max-width:700px){ .pgrid{grid-template-columns:1fr;} }
+  .pcard{ border:1.5px solid var(--blue); background:rgba(255,255,255,0.55); padding:20px; }
+  .pcard .status{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em;
+    text-transform:uppercase; padding:3px 8px; border:1px solid var(--rust); color:var(--rust); margin-bottom:12px;
+  }
+  .pcard dl{ margin:12px 0 0 0; font-size:13px; }
+  .pcard dt{ font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; color:var(--blue); opacity:0.8; margin-top:10px; }
+  .pcard dd{ margin:2px 0 0 0; opacity:0.85; }
+
+  /* JOURNAL */
+  .empty{
+    border:1.5px dashed var(--blue-light); padding:40px; text-align:center; color:var(--ink); opacity:0.7;
+  }
+  .empty .eyebrow{ opacity:1; }
+
+  /* RESUME */
+  .cv-block{ margin-bottom:28px; }
+  .cv-role{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:4px;}
+  .cv-role .co{ font-weight:600; }
+  .cv-role .dt{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; opacity:0.6; }
+  ul.cv{ margin:6px 0 18px 0; padding-left:18px; }
+  ul.cv li{ font-size:14px; line-height:1.65; margin-bottom:5px; opacity:0.9; }
+  .tagrow{ display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;}
+  .tagrow span{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; border:1px solid var(--blue-light);
+    padding:3px 8px; color:var(--blue);
+  }
+
+  /* CONTACT */
+  .contact-grid{ display:flex; flex-direction:column; gap:14px; max-width:420px; }
+  .contact-row{ display:flex; justify-content:space-between; border-bottom:1px dashed var(--blue-light); padding:12px 0; }
+  .contact-row .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; opacity:0.6; }
+
+  footer{ border-top:2px solid var(--blue); padding:22px 0; font-family:'IBM Plex Mono',monospace; font-size:10.5px; opacity:0.55; }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="wrap">
+    <div class="brand">AYUNI <span>AZMI</span></div>
+    <div class="navlinks">
+      <button data-tab="home" class="active">Home</button>
+      <button data-tab="about">About</button>
+      <button data-tab="projects">Projects</button>
+      <button data-tab="journal">Journal</button>
+      <button data-tab="resume">Resume</button>
+      <button data-tab="contact">Contact</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <!-- HOME -->
+    <section id="home" class="active">
+      <div class="eyebrow">Business Analyst · Cloud &amp; AI · Solutions Architect (in progress)</div>
+      <h1>I turn messy requirements<br>into systems that ship.</h1>
+      <p class="lede">Former educator, former Google Cloud engineer, now a Business Analyst on
+      government-scale AI programs at NCS. Building in public toward Solutions Architecture and
+      Forward Deployed Engineering — one shipped project and one honest write-up at a time.</p>
+      <div class="btnrow">
+        <button class="btn solid" onclick="go('projects')">View Projects</button>
+        <button class="btn" onclick="go('journal')">Read Journal</button>
+        <a class="btn" href="https://github.com/ayuniazmi" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/ayuniazmi" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+      <div class="schematic">
+        <svg viewBox="0 0 800 150" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <line x1="40" y1="75" x2="760" y2="75" stroke="#B7CEDD" stroke-width="2" stroke-dasharray="1 8"/>
+          <!-- nodes -->
+          <g font-family="IBM Plex Mono, monospace" font-size="10">
+            <circle cx="40" cy="75" r="7" fill="#2C5F8A"/>
+            <text x="40" y="105" text-anchor="middle" fill="#182B3D" opacity="0.8">MOE</text>
+            <text x="40" y="118" text-anchor="middle" fill="#182B3D" opacity="0.5">2017–25</text>
+
+            <circle cx="230" cy="75" r="7" fill="#2C5F8A"/>
+            <text x="230" y="105" text-anchor="middle" fill="#182B3D" opacity="0.8">GXS BANK</text>
+            <text x="230" y="118" text-anchor="middle" fill="#182B3D" opacity="0.5">2025</text>
+
+            <circle cx="410" cy="75" r="7" fill="#2C5F8A"/>
+            <text x="410" y="105" text-anchor="middle" fill="#182B3D" opacity="0.8">GOOGLE</text>
+            <text x="410" y="118" text-anchor="middle" fill="#182B3D" opacity="0.5">2025–26</text>
+
+            <circle cx="590" cy="75" r="7" fill="#2C5F8A"/>
+            <text x="590" y="105" text-anchor="middle" fill="#182B3D" opacity="0.8">NCS</text>
+            <text x="590" y="118" text-anchor="middle" fill="#182B3D" opacity="0.5">2026–now</text>
+
+            <circle cx="760" cy="75" r="8" fill="none" stroke="#C4703B" stroke-width="2" stroke-dasharray="3 3"/>
+            <text x="760" y="105" text-anchor="middle" fill="#C4703B" font-weight="600">SA / FDE</text>
+            <text x="760" y="118" text-anchor="middle" fill="#C4703B" opacity="0.7">next</text>
+          </g>
+        </svg>
+        <div class="caption">FIG. 01 — CAREER SCHEMATIC, NOT TO SCALE</div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="eyebrow">About</div>
+      <h2>Eight years in a classroom taught me more about systems than any course did.</h2>
+      <div class="story">
+        <p>I started as an educator with the Ministry of Education, spending close to eight years
+        leading EdTech adoption across 80+ teachers and running a $50,000 annual overseas learning
+        programme with zero safety incidents. Teaching is, underneath everything, a systems problem:
+        you're constantly translating between what people need, what's actually possible, and how to
+        get a room full of different stakeholders moving in the same direction.</p>
+        <p>While teaching full-time, I completed a degree in Information Technology and Business,
+        which became my way into tech. A short stint as a Data Privacy Officer Intern at GXS Bank
+        gave me a close look at how governance, risk, and AI systems collide in a regulated
+        environment. From there I joined Google as a Customer Engineer Trainee on the Workspace and
+        Gemini team, designing and demoing AI solutions for enterprise customers like DBS and SUSS,
+        and building the internal tooling that other engineers used to sell those solutions.</p>
+        <p>Today I'm a Business Analyst at NCS, working across three concurrent engagements — most
+        notably a $10M government AI Knowledge Management tender, where I've mapped user stories
+        across five stakeholder groups and surfaced the legacy-system risks (a 20-year-old Lotus
+        Notes archive, among other things) that shaped how the solution was ultimately pitched.</p>
+        <p>My long-term goal is to become a Solutions Architect or Forward Deployed Engineer —
+        someone who sits at the intersection of a customer's real, messy constraints and what
+        engineering can actually build. This site is where I'm documenting that transition, in the
+        open, as it happens.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><div class="n">01</div><div class="t">Stakeholder translation</div></div>
+        <div class="pillar"><div class="n">02</div><div class="t">Enterprise AI &amp; cloud</div></div>
+        <div class="pillar"><div class="n">03</div><div class="t">Governance &amp; risk</div></div>
+        <div class="pillar"><div class="n">04</div><div class="t">Hands-on build depth</div></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="eyebrow">Projects</div>
+      <h2>Four projects, chosen to extend real work — not portfolio filler.</h2>
+      <p style="opacity:0.65; font-size:13.5px; margin-top:-8px; margin-bottom:28px;">
+        Status is tracked honestly. Nothing here is claimed as finished until it's actually deployed.
+      </p>
+      <div class="pgrid">
+        <div class="pcard">
+          <div class="status">In Progress</div>
+          <h3>01 — Architecture Cost &amp; Tradeoff Generator</h3>
+          <dl>
+            <dt>Problem</dt><dd>Turn a system requirement into an AWS architecture diagram, service choices, rough cost estimate, and tradeoffs.</dd>
+            <dt>Stack</dt><dd>AWS, Terraform, Python</dd>
+            <dt>Why it matters</dt><dd>Directly reusable from vendor-evaluation work on HDB AI KMS.</dd>
+          </dl>
+        </div>
+        <div class="pcard">
+          <div class="status">Planned</div>
+          <h3>02 — RAG Evaluation Framework v2</h3>
+          <dl>
+            <dt>Problem</dt><dd>Production-grade rebuild of the Student Handbook RAG project — proper retrieval benchmarking and error analysis.</dd>
+            <dt>Stack</dt><dd>Python, vector DB, OpenAI/Gemini</dd>
+            <dt>Why it matters</dt><dd>Flagship AI engineering piece; extends existing SUSS capstone work.</dd>
+          </dl>
+        </div>
+        <div class="pcard">
+          <div class="status">Planned</div>
+          <h3>03 — AI Business Analyst Assistant</h3>
+          <dl>
+            <dt>Problem</dt><dd>Upload a BRD, generate use cases, acceptance criteria, and test cases.</dd>
+            <dt>Stack</dt><dd>Next.js, Python, OpenAI</dd>
+            <dt>Why it matters</dt><dd>Automates the day job; easy to demo to non-technical stakeholders.</dd>
+          </dl>
+        </div>
+        <div class="pcard">
+          <div class="status">Planned</div>
+          <h3>04 — Agentic Meeting-to-Delivery Pipeline</h3>
+          <dl>
+            <dt>Problem</dt><dd>Meeting transcript → summary → action items → tickets.</dd>
+            <dt>Stack</dt><dd>Agent framework, MCP, Jira API</dd>
+            <dt>Why it matters</dt><dd>Shows multi-step agentic reasoning, where FDE hiring is heading.</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNAL -->
+    <section id="journal">
+      <div class="eyebrow">Architecture Journal</div>
+      <h2>Weekly notes on what I'm learning and building.</h2>
+      <div class="empty">
+        <div class="eyebrow">First entry coming soon</div>
+        <p style="max-width:420px; margin:0 auto;">One real entry a week, published every Sunday —
+        synthesised from daily learning logs. Nothing here yet because nothing's been published yet.
+        Check back soon.</p>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume">
+      <div class="eyebrow">Resume</div>
+      <h2>Ayuni Azmi</h2>
+      <p style="margin-top:-10px; opacity:0.75;">Business Analyst · AI &amp; Cloud Transformation · Government &amp; Enterprise<br>
+      Singapore · <a href="mailto:ayuuuniaz@gmail.com">ayuuuniaz@gmail.com</a> ·
+      <a href="https://linkedin.com/in/ayuniazmi" target="_blank" rel="noopener">linkedin.com/in/ayuniazmi</a></p>
+
+      <div class="cv-block">
+        <h3 style="margin-top:24px;">Professional Experience</h3>
+
+        <div class="cv-role"><span class="co">Business Analyst — NCS</span><span class="dt">May 2026 – Present</span></div>
+        <ul class="cv">
+          <li>Supporting 3 concurrent engagements across government AI, EdTech, and cloud migration.</li>
+          <li>HDB AI KMS ($10M tender): mapped 18 user stories across 5 stakeholder personas; surfaced legacy-system risks that shaped the pursuit bid strategy.</li>
+          <li>Tracked solution evaluation across 4 vendor options over 5 cadence cycles.</li>
+          <li>NUS GWS Migration: scoped consolidation of 5 Google Workspace domains into 1.</li>
+        </ul>
+
+        <div class="cv-role"><span class="co">Customer Engineer Trainee — Google Workspace &amp; Gemini, Google</span><span class="dt">Apr 2025 – Apr 2026</span></div>
+        <ul class="cv">
+          <li>Designed and demoed AI solutions for enterprise customers including DBS Bank, IAL, and SUSS.</li>
+          <li>Project Synapse: Gemini-powered skills assessment platform integrating AppSheet and Vertex AI.</li>
+          <li>Built an M365–Workspace coexistence demo used by regional technical sales teams.</li>
+        </ul>
+
+        <div class="cv-role"><span class="co">Data Privacy Officer Intern — GXS Bank</span><span class="dt">Feb 2025 – Mar 2025</span></div>
+        <ul class="cv">
+          <li>Administered OneTrust for consent management across Snowflake, Salesforce, and Dynamics.</li>
+          <li>Built Tableau dashboards for privacy and compliance reporting.</li>
+        </ul>
+
+        <div class="cv-role"><span class="co">Education Officer &amp; EdTech Champion — Ministry of Education</span><span class="dt">Jun 2017 – Jan 2025</span></div>
+        <ul class="cv">
+          <li>Led national EdTech platform adoption across 80+ educators, near-100% onboarding.</li>
+          <li>Managed a $50,000/yr overseas learning programme for 3 years, zero safety incidents.</li>
+        </ul>
+      </div>
+
+      <div class="cv-block">
+        <h3>Certifications</h3>
+        <div class="tagrow">
+          <span>PMP</span><span>Google Professional Cloud Architect</span>
+          <span>Google Professional Cloud ML Engineer</span><span>AWS SA Professional (in progress)</span>
+          <span>Google Data Analytics</span><span>IBM ML with Python</span>
+        </div>
+      </div>
+
+      <div class="cv-block">
+        <h3>Technical Skills</h3>
+        <div class="tagrow">
+          <span>Python</span><span>SQL</span><span>Flask</span><span>Docker</span><span>Kubernetes</span>
+          <span>Vertex AI</span><span>Gemini</span><span>RAG</span><span>BigQuery ML</span>
+          <span>GCP</span><span>AWS</span><span>Terraform-ready</span>
+        </div>
+      </div>
+
+      <p style="margin-top:20px;">Want the full PDF? <a href="mailto:ayuuuniaz@gmail.com?subject=Resume%20request">Email me</a> and I'll send it over.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="eyebrow">Contact</div>
+      <h2>Let's talk cloud, AI, or career transitions.</h2>
+      <p style="max-width:480px;">I'm especially interested in conversations about customer engineering,
+      solutions architecture, and moving from a non-traditional background into tech.</p>
+      <div class="contact-grid">
+        <div class="contact-row"><span class="k">Email</span><a href="mailto:ayuuuniaz@gmail.com">ayuuuniaz@gmail.com</a></div>
+        <div class="contact-row"><span class="k">LinkedIn</span><a href="https://linkedin.com/in/ayuniazmi" target="_blank" rel="noopener">linkedin.com/in/ayuniazmi</a></div>
+        <div class="contact-row"><span class="k">GitHub</span><a href="https://github.com/ayuniazmi" target="_blank" rel="noopener">github.com/ayuniazmi</a></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">SHEET AZMI-WEB · REV A · UPDATED JUL 2026</div>
+</footer>
+
+<script>
+  function go(tab){
+    document.querySelectorAll('.navlinks button').forEach(b=>b.classList.toggle('active', b.dataset.tab===tab));
+    document.querySelectorAll('main section').forEach(s=>s.classList.toggle('active', s.id===tab));
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  document.querySelectorAll('.navlinks button').forEach(b=>{
+    b.addEventListener('click', ()=>go(b.dataset.tab));
+  });
+</script>
+</body>
+</html>
