@@ -1,2 +1,7 @@
 .DS_Store
 .claude/
+
+# Personal progress tracker — kept local only, not published to GitHub Pages
+tracker.html
+css/tracker.css
+js/tracker.js
