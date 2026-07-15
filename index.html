@@ -295,6 +295,7 @@
             <dt>Stack</dt><dd>AWS, Terraform, Python</dd>
             <dt>Why it matters</dt><dd>Directly reusable from vendor-evaluation work on HDB AI KMS.</dd>
           </dl>
+          <a class="pcard-link" href="cost-generator.html">Try the generator &rarr;</a>
         </div>
         <div class="pcard">
           <div class="status planned">Planned</div>
@@ -345,11 +346,39 @@
         </div>
       -->
       <div class="journal-list" id="journalList">
-        <div class="empty" id="journalEmpty">
-          <div class="eyebrow">First entry coming soon</div>
-          <p style="max-width:420px; margin:0 auto;">One real entry a week, published every Sunday —
-          synthesised from daily learning logs. Nothing here yet because nothing's been published yet.
-          Check back soon.</p>
+        <div class="jcard">
+          <div class="jdate">JUL 15, 2026</div>
+          <h3>Project 01: shipping the Architecture Cost &amp; Tradeoff Generator</h3>
+
+          <div class="j-label">The problem</div>
+          <p>Built the first version of the tool that turns a workload description — traffic pattern, latency
+          sensitivity, data shape, team ops capacity — into three candidate AWS architectures, each with a rough
+          monthly cost estimate and honest tradeoffs. This is close to what I already do informally during vendor
+          evaluations at work; the point of building it was to make that reasoning <strong>explicit, repeatable,
+          and demoable</strong> instead of living only in my head.</p>
+
+          <div class="jstat-row">
+            <div class="jstat"><span class="jstat-num">$89</span><span class="jstat-lbl">Serverless /mo</span></div>
+            <div class="jstat"><span class="jstat-num">$115</span><span class="jstat-lbl">Containers /mo</span></div>
+            <div class="jstat"><span class="jstat-num">$140</span><span class="jstat-lbl">VMs /mo</span></div>
+          </div>
+          <p class="jstat-caption">One example run — small team, steady traffic, relational data. Inputs change the ranking.</p>
+
+          <div class="j-label">How it decides</div>
+          <p>The fit score isn't a black box: every factor is tied to an input and, where it applies, to a
+          <strong>Well-Architected Framework pillar</strong> (ops appetite &rarr; Operational Excellence, traffic
+          pattern &rarr; Cost Optimization, latency &rarr; Performance Efficiency, data needs &rarr; Reliability).
+          Lock-in is tracked separately since it's a real stakeholder concern that Well-Architected itself doesn't
+          score. The full breakdown is documented on the tool page itself.</p>
+
+          <div class="j-label">What's next</div>
+          <p>Deliberately scoped down for v1: pricing is simplified, hardcoded, illustrative us-east-1 on-demand
+          numbers — not a live pricing API — and the three architecture patterns are fixed rather than arbitrarily
+          composable. Next up: wire in the real <strong>AWS Price List API</strong>, and turn the recommended
+          architecture into actual <strong>Terraform</strong> so the tool's output is provably deployable, not
+          just a diagram.</p>
+
+          <div class="tagrow"><span>AWS</span><span>Well-Architected</span><span>Cost Modeling</span></div>
         </div>
       </div>
     </section>

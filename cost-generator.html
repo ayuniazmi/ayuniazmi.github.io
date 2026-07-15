@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture Cost &amp; Tradeoff Generator — AZMI-002</title>
+<meta name="description" content="Describe a workload, get three candidate AWS architectures — serverless, containers, VMs — with rough cost estimates and tradeoffs.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/cost-generator.css">
+</head>
+<body>
+<div class="blobs" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+</div>
+<div class="sheet">
+  <header>
+    <div>
+      <a class="back-link" href="index.html#projects">&larr; Back to site</a>
+      <div class="titleblock-label">Sheet AZMI&#8209;002 &nbsp;/&nbsp; Rev A</div>
+      <h1>Architecture Cost &amp; Tradeoff Generator</h1>
+    </div>
+    <div class="meta">
+      SCALE: NTS<br>
+      DRAWN: A. AZMI<br>
+      PROJECT: 01
+    </div>
+  </header>
+
+  <div class="intro">
+    <p>Describe a workload below. This maps it to three canonical AWS patterns — <strong>serverless</strong>,
+    <strong>containers</strong>, and <strong>VMs</strong> — with a rough monthly cost estimate, honest tradeoffs,
+    and a best-fit call based on what you entered.</p>
+    <p class="disclaimer">Costs are illustrative — simplified, public <strong>us-east-1 on-demand</strong> pricing
+    baked into this page, not a live pricing API. Treat it as a first-pass architecture conversation starter, not
+    a quote. For a real number, use the <a href="https://calculator.aws" target="_blank" rel="noopener">AWS Pricing Calculator</a>.</p>
+  </div>
+
+  <main>
+    <section class="form-section">
+      <p class="section-title">1 &middot; Describe the workload</p>
+      <div class="form-grid">
+        <label>Workload type
+          <select id="workloadType">
+            <option value="webapi">Web app / API backend</option>
+            <option value="batch">Batch or scheduled job</option>
+            <option value="streaming">Event-driven / streaming pipeline</option>
+          </select>
+        </label>
+
+        <label>Expected requests / month
+          <input type="number" id="reqPerMonth" value="1000000" min="100" step="100">
+          <div class="preset-row">
+            <button type="button" class="preset" data-val="10000">10K</button>
+            <button type="button" class="preset" data-val="1000000">1M</button>
+            <button type="button" class="preset" data-val="50000000">50M</button>
+          </div>
+        </label>
+
+        <label>Avg. request duration (ms)
+          <input type="number" id="avgDuration" value="200" min="1">
+        </label>
+
+        <label>Traffic pattern
+          <select id="trafficPattern">
+            <option value="steady">Steady, predictable</option>
+            <option value="bursty">Spiky / unpredictable</option>
+            <option value="idle">Occasional — mostly idle</option>
+          </select>
+        </label>
+
+        <label>Data needs
+          <select id="dataNeeds">
+            <option value="none">None / stateless</option>
+            <option value="nosql">NoSQL (key-value / document)</option>
+            <option value="sql">Relational (SQL)</option>
+          </select>
+        </label>
+
+        <label>Latency sensitivity
+          <select id="latency">
+            <option value="low">Not sensitive (batch/internal)</option>
+            <option value="medium">Sensitive (&lt;300ms, user-facing)</option>
+            <option value="high">Very sensitive (&lt;100ms, real-time)</option>
+          </select>
+        </label>
+
+        <label>Team ops capacity
+          <select id="opsAppetite">
+            <option value="small">Small team, minimal ops appetite</option>
+            <option value="moderate">Moderate — comfortable with containers</option>
+            <option value="dedicated">Dedicated platform/infra team</option>
+          </select>
+        </label>
+      </div>
+
+      <button id="generateBtn" class="generate-btn">Generate architecture options &rarr;</button>
+    </section>
+
+    <section class="results-section" id="resultsSection">
+      <p class="section-title">2 &middot; Candidate architectures</p>
+      <p class="section-sub">Ranked by fit for what you described above. Cost shown is estimated total monthly infra spend.</p>
+      <div class="arch-grid" id="archGrid"></div>
+    </section>
+
+    <section class="method-section">
+      <details>
+        <summary>How the fit score and cost estimates are calculated</summary>
+
+        <p class="method-lead">The fit score isn't a black box — every factor below maps to a specific input you
+        gave and, where applicable, to an AWS Well-Architected Framework pillar. Adjust your inputs above and
+        re-generate to see the reasoning change.</p>
+
+        <h4>Fit score factors</h4>
+        <table class="method-table">
+          <tr><td>Team ops capacity</td><td>Small team &rarr; +25 serverless, &minus;15 VMs. Dedicated platform team &rarr; +15 containers/VMs.</td><td>Operational Excellence</td></tr>
+          <tr><td>Latency sensitivity</td><td>Very sensitive &rarr; &minus;20 serverless (cold starts), +10 containers/VMs.</td><td>Performance Efficiency</td></tr>
+          <tr><td>Traffic pattern</td><td>Bursty/idle &rarr; +20 serverless (pay-per-use). Steady &rarr; +10 containers/VMs (predictable utilization).</td><td>Cost Optimization, Performance Efficiency</td></tr>
+          <tr><td>Data needs</td><td>Relational &rarr; &minus;10 serverless (connection-pooling overhead). NoSQL &rarr; +10 serverless.</td><td>Reliability</td></tr>
+          <tr><td>Estimated cost rank</td><td>Cheapest option of the three &rarr; +15. Second cheapest &rarr; +7.</td><td>Cost Optimization</td></tr>
+        </table>
+        <p class="method-note">Lock-in isn't an official Well-Architected pillar — it's tracked here as a separate
+        practical risk axis (proprietary APIs and managed-service coupling vs. portable compute), since it's a
+        real tradeoff stakeholders ask about even though AWS's own framework doesn't score it.</p>
+
+        <h4>Cost model assumptions</h4>
+        <ul class="method-list">
+          <li>Simplified <strong>us-east-1 on-demand</strong> list pricing — no Reserved Instances, Savings Plans, or free-tier credits applied.</li>
+          <li>Lambda: 512MB memory per invocation; API Gateway priced as HTTP API (cheaper tier than REST API).</li>
+          <li>DynamoDB: blended on-demand read+write request-unit cost, assuming roughly one read and one write per request.</li>
+          <li>Fargate: 0.5 vCPU / 1GB per task, sized to handle ~50 req/sec per task; EC2: t3.medium instances, sized to ~40 req/sec per instance. A 1.5&times; headroom buffer is added for spiky traffic. A 2-task/instance floor is enforced for baseline high availability.</li>
+          <li>RDS: db.t3.medium, single instance, 20GB storage — no Multi-AZ, no read replicas.</li>
+          <li>Data transfer: flat 50KB average response size assumption across all three architectures.</li>
+        </ul>
+        <p class="method-note">These are deliberately simple, stated assumptions rather than a live pricing API —
+        the goal is to make the tradeoff reasoning visible and adjustable, not to produce a bill-accurate quote.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <span>PRICING MODEL: ILLUSTRATIVE, US-EAST-1, JUL 2026</span>
+    <span>PROJECT 01 OF THE SA/FDE ROADMAP</span>
+  </footer>
+</div>
+
+<script src="js/cost-generator.js"></script>
+</body>
+</html>

@@ -6,19 +6,26 @@ journey. Static HTML/CSS/JS — no build step, no framework.
 ## Structure
 
 ```
-index.html      Main site (Home, About, Projects, Journal, Resume, Contact)
-tracker.html    SA/FDE progress tracker (14-day launch, curriculum, projects, weekly ritual)
+index.html          Main site (Home, About, Projects, Journal, Resume, Contact)
+cost-generator.html Project 01 — Architecture Cost & Tradeoff Generator
+tracker.html        SA/FDE progress tracker (14-day launch, curriculum, projects, weekly ritual)
 css/
-  style.css     Styles for index.html
-  tracker.css   Styles for tracker.html
+  style.css         Styles for index.html
+  cost-generator.css Styles for cost-generator.html
+  tracker.css       Styles for tracker.html
 js/
-  main.js       Tab navigation for index.html
-  tracker.js    Tracker state, rendering, and persistence
-favicon.svg     Shared favicon
+  main.js           Tab navigation for index.html
+  cost-generator.js Pricing model, fit scoring, and rendering for cost-generator.html
+  tracker.js        Tracker state, rendering, and persistence
+favicon.svg         Shared favicon
 ```
 
 The tracker persists progress to `localStorage` in the visitor's browser — it does not
 sync across devices or save to a server.
+
+The cost generator is a static, client-side estimator: it uses simplified public AWS
+pricing baked into `cost-generator.js`, not a live pricing API, and is meant as an
+architecture-reasoning demo rather than a real quote.
 
 ## Local preview
 
