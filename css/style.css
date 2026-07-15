@@ -262,6 +262,7 @@ p{ line-height:1.7; font-size:15.5px; }
 }
 .pcard .status.in-progress{ background:rgba(139,47,248,0.14); color:var(--purple-deep); }
 .pcard .status.planned{ background:rgba(255,45,138,0.12); color:var(--pink-deep); border:1px solid rgba(255,45,138,0.3); }
+.pcard .status.shipped{ background:rgba(23,201,128,0.14); color:var(--green-deep); border:1px solid rgba(23,201,128,0.35); }
 .pcard dl{ margin:12px 0 0 0; font-size:13px; }
 .pcard dt{ font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; color:var(--purple-deep); opacity:0.85; margin-top:10px; font-weight:600; }
 .pcard dd{ margin:2px 0 0 0; opacity:0.85; }
