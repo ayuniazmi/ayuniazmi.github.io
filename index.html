@@ -4,121 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ayuni Azmi — Business Analyst → Solutions Architect</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-
-  :root{
-    --paper:#FAFAF6;
-    --ink:#182B3D;
-    --blue:#2C5F8A;
-    --blue-light:#B7CEDD;
-    --blue-faint:#E4ECF1;
-    --rust:#C4703B;
-    --done:#4F7A5E;
-    --line: rgba(44,95,138,0.14);
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:
-      linear-gradient(var(--line) 1px, transparent 1px) 0 0/36px 36px,
-      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/36px 36px,
-      var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-  }
-  a{ color:var(--blue); }
-  .wrap{ max-width:880px; margin:0 auto; padding:0 24px; }
-
-  /* NAV */
-  .topnav{
-    position:sticky; top:0; z-index:50; background:rgba(250,250,246,0.92);
-    backdrop-filter:blur(6px); border-bottom:2px solid var(--blue);
-  }
-  .topnav .wrap{ display:flex; align-items:center; justify-content:space-between; padding:14px 24px; }
-  .brand{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; letter-spacing:-0.01em; }
-  .brand span{ color:var(--rust); }
-  .navlinks{ display:flex; gap:4px; flex-wrap:wrap; }
-  .navlinks button{
-    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
-    background:none; border:none; padding:8px 12px; cursor:pointer; color:var(--ink); opacity:0.6;
-    border-bottom:2px solid transparent;
-  }
-  .navlinks button.active{ opacity:1; color:var(--blue); border-bottom-color:var(--rust); font-weight:600; }
-
-  main section{ display:none; padding:56px 0 64px 0; }
-  main section.active{ display:block; }
-
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--rust); margin-bottom:14px;
-  }
-  h1{ font-family:'Space Grotesk',sans-serif; font-size:44px; line-height:1.1; margin:0 0 18px 0; font-weight:700; letter-spacing:-0.015em; }
-  h2{ font-family:'Space Grotesk',sans-serif; font-size:26px; margin:0 0 20px 0; font-weight:700; letter-spacing:-0.01em; }
-  h3{ font-family:'Space Grotesk',sans-serif; font-size:17px; margin:0 0 8px 0; font-weight:600; }
-  p{ line-height:1.7; font-size:15.5px; }
-  .lede{ font-size:18px; opacity:0.85; max-width:560px; margin-bottom:32px; }
-
-  .btnrow{ display:flex; gap:12px; flex-wrap:wrap; }
-  .btn{
-    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.04em; text-transform:uppercase;
-    padding:12px 20px; border:1.5px solid var(--blue); text-decoration:none; color:var(--blue);
-    display:inline-block; transition:all .15s ease;
-  }
-  .btn.solid{ background:var(--blue); color:#fff; }
-  .btn:hover{ background:var(--blue); color:#fff; }
-
-  /* HOME schematic */
-  .schematic{ margin-top:56px; }
-  .schematic .caption{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; opacity:0.5; margin-top:10px; }
-
-  /* ABOUT */
-  .story p{ max-width:640px; }
-  .pillars{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:36px; }
-  @media(max-width:700px){ .pillars{grid-template-columns:1fr 1fr;} }
-  .pillar{ border:1.5px solid var(--blue); padding:14px; background:rgba(255,255,255,0.5); }
-  .pillar .n{ font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--rust); }
-  .pillar .t{ font-size:13px; font-weight:600; margin-top:4px; }
-
-  /* PROJECTS */
-  .pgrid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-  @media(max-width:700px){ .pgrid{grid-template-columns:1fr;} }
-  .pcard{ border:1.5px solid var(--blue); background:rgba(255,255,255,0.55); padding:20px; }
-  .pcard .status{
-    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em;
-    text-transform:uppercase; padding:3px 8px; border:1px solid var(--rust); color:var(--rust); margin-bottom:12px;
-  }
-  .pcard dl{ margin:12px 0 0 0; font-size:13px; }
-  .pcard dt{ font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; color:var(--blue); opacity:0.8; margin-top:10px; }
-  .pcard dd{ margin:2px 0 0 0; opacity:0.85; }
-
-  /* JOURNAL */
-  .empty{
-    border:1.5px dashed var(--blue-light); padding:40px; text-align:center; color:var(--ink); opacity:0.7;
-  }
-  .empty .eyebrow{ opacity:1; }
-
-  /* RESUME */
-  .cv-block{ margin-bottom:28px; }
-  .cv-role{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:4px;}
-  .cv-role .co{ font-weight:600; }
-  .cv-role .dt{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; opacity:0.6; }
-  ul.cv{ margin:6px 0 18px 0; padding-left:18px; }
-  ul.cv li{ font-size:14px; line-height:1.65; margin-bottom:5px; opacity:0.9; }
-  .tagrow{ display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;}
-  .tagrow span{
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; border:1px solid var(--blue-light);
-    padding:3px 8px; color:var(--blue);
-  }
-
-  /* CONTACT */
-  .contact-grid{ display:flex; flex-direction:column; gap:14px; max-width:420px; }
-  .contact-row{ display:flex; justify-content:space-between; border-bottom:1px dashed var(--blue-light); padding:12px 0; }
-  .contact-row .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; opacity:0.6; }
-
-  footer{ border-top:2px solid var(--blue); padding:22px 0; font-family:'IBM Plex Mono',monospace; font-size:10.5px; opacity:0.55; }
-</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -132,6 +19,7 @@
       <button data-tab="journal">Journal</button>
       <button data-tab="resume">Resume</button>
       <button data-tab="contact">Contact</button>
+      <a class="navlink" href="tracker.html">Progress ↗</a>
     </div>
   </div>
 </div>
@@ -355,15 +243,6 @@
   <div class="wrap">SHEET AZMI-WEB · REV A · UPDATED JUL 2026</div>
 </footer>
 
-<script>
-  function go(tab){
-    document.querySelectorAll('.navlinks button').forEach(b=>b.classList.toggle('active', b.dataset.tab===tab));
-    document.querySelectorAll('main section').forEach(s=>s.classList.toggle('active', s.id===tab));
-    window.scrollTo({top:0, behavior:'smooth'});
-  }
-  document.querySelectorAll('.navlinks button').forEach(b=>{
-    b.addEventListener('click', ()=>go(b.dataset.tab));
-  });
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
