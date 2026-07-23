@@ -336,20 +336,37 @@
 
       <!--
         JOURNAL ENTRIES — newest first.
-        To add a new entry, insert a .jcard block right here (above any existing ones)
-        using this shape, then delete #journalEmpty below once there's at least one entry:
+        Each entry is collapsed to its excerpt by default and expands in place; the id
+        on .jcard is what makes it linkable as index.html#that-id (the share button
+        copies that URL). Give every new entry a permanent, stable id — don't reuse or
+        rename one that's already been shared.
 
-        <div class="jcard">
+        To add a new entry, insert a block right here (above any existing ones) using
+        this shape, then delete #journalEmpty below once there's at least one entry:
+
+        <div class="jcard" id="entry-a-stable-slug">
           <div class="jdate">JUL 20, 2026</div>
           <h3>Entry title</h3>
-          <p>Entry body — a few paragraphs of what you learned/built this week.</p>
+          <p class="jexcerpt">One sentence summary shown in the collapsed card.</p>
           <div class="tagrow"><span>AWS</span><span>RAG</span></div>
+          <div class="jbody">
+            <p>Entry body — a few paragraphs of what you learned/built this week.</p>
+          </div>
+          <div class="jcard-footer">
+            <button class="j-toggle">Read full entry &darr;</button>
+            <button class="j-share">&#128279; Copy link</button>
+          </div>
         </div>
       -->
       <div class="journal-list" id="journalList">
-        <div class="jcard">
+        <div class="jcard" id="entry-why-chain">
           <div class="jdate">JUL 23, 2026</div>
           <h3>The "why chain" is just good teaching</h3>
+          <p class="jexcerpt">Amazon's "why chain" requirement-gathering technique turned out to be the exact
+          diagnostic process I used with students for 8 years — MOE experience is more transferable to SA work
+          than I expected.</p>
+          <div class="tagrow"><span>Requirement Gathering</span><span>Communication</span><span>Career Transition</span></div>
+          <div class="jbody">
 
           <div class="j-label">The pattern I recognized immediately</div>
           <p>Second video from the same training set, this time on requirement gathering. The core technique —
@@ -386,11 +403,19 @@
           for free. The technical vocabulary and architecture fluency to act on them is the part I'm actually
           here to build.</p>
 
-          <div class="tagrow"><span>Requirement Gathering</span><span>Communication</span><span>Career Transition</span></div>
+          </div>
+          <div class="jcard-footer">
+            <button class="j-toggle">Read full entry &darr;</button>
+            <button class="j-share">&#128279; Copy link</button>
+          </div>
         </div>
-        <div class="jcard">
+        <div class="jcard" id="entry-well-architected-checklist">
           <div class="jdate">JUL 23, 2026</div>
           <h3>Well-Architected is a conversation, not a checklist</h3>
+          <p class="jexcerpt">Notes on treating the Well-Architected Framework as an iterative lens instead of a
+          compliance checklist, and turning customer pushback into a teaching moment instead of a standoff.</p>
+          <div class="tagrow"><span>AWS</span><span>Well-Architected</span><span>Stakeholder Management</span></div>
+          <div class="jbody">
 
           <div class="j-label">The reframe</div>
           <p>Watched a recorded conversation between two AWS Solutions Architects this week that reframed
@@ -425,11 +450,19 @@
           it a name and a structure. Treating it as something that evolves with the workload, not a one-time
           audit, is the mindset shift I want to carry into the next two projects.</p>
 
-          <div class="tagrow"><span>AWS</span><span>Well-Architected</span><span>Stakeholder Management</span></div>
+          </div>
+          <div class="jcard-footer">
+            <button class="j-toggle">Read full entry &darr;</button>
+            <button class="j-share">&#128279; Copy link</button>
+          </div>
         </div>
-        <div class="jcard">
+        <div class="jcard" id="entry-project-01-cost-generator">
           <div class="jdate">JUL 15, 2026</div>
           <h3>Project 01: shipping the Architecture Cost &amp; Tradeoff Generator</h3>
+          <p class="jexcerpt">Shipped v1 of the tool that turns a workload description into three costed AWS
+          architectures with honest tradeoffs — and what's still hardcoded that shouldn't be.</p>
+          <div class="tagrow"><span>AWS</span><span>Well-Architected</span><span>Cost Modeling</span></div>
+          <div class="jbody">
 
           <div class="j-label">The problem</div>
           <p>Built the first version of the tool that turns a workload description — traffic pattern, latency
@@ -459,7 +492,11 @@
           architecture into actual <strong>Terraform</strong> so the tool's output is provably deployable, not
           just a diagram.</p>
 
-          <div class="tagrow"><span>AWS</span><span>Well-Architected</span><span>Cost Modeling</span></div>
+          </div>
+          <div class="jcard-footer">
+            <button class="j-toggle">Read full entry &darr;</button>
+            <button class="j-share">&#128279; Copy link</button>
+          </div>
         </div>
       </div>
     </section>

@@ -292,11 +292,26 @@ p{ line-height:1.7; font-size:15.5px; }
 .jcard h3{ font-size:19px; margin-bottom:10px; }
 .jcard p{ opacity:0.85; margin:0 0 14px 0; line-height:1.65; }
 .jcard strong{ color:var(--purple-deep); }
+.jcard .jexcerpt{ opacity:0.75; margin-bottom:0; }
+.jcard .tagrow{ margin-top:14px; }
 .jcard .j-label{
   font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.08em;
   text-transform:uppercase; color:var(--pink-deep); margin:18px 0 6px 0;
 }
-.jcard h3 + .j-label{ margin-top:0; }
+.jcard .jbody{ display:none; }
+.jcard .jbody > .j-label:first-child{ margin-top:0; }
+.jcard.expanded .jbody{ display:block; animation:fadeInUp .4s ease both; }
+.jcard-footer{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:18px;
+  padding-top:14px; border-top:1px dashed var(--card-border);
+}
+.j-toggle, .j-share{
+  background:none; border:none; padding:0; cursor:pointer; font-family:'IBM Plex Mono',monospace;
+  font-size:11px; font-weight:600; letter-spacing:0.03em; color:var(--purple-deep); transition:color .15s ease;
+}
+.j-toggle:hover, .j-share:hover{ color:var(--pink-deep); text-decoration:underline; }
+.j-share{ opacity:0.7; }
+.j-share:hover{ opacity:1; }
 .jcard .jstat-row{
   display:flex; gap:26px; flex-wrap:wrap; margin:14px 0 6px 0; padding:14px 18px;
   border:1.5px dashed var(--card-border); border-radius:12px; background:rgba(139,47,248,0.04);
@@ -308,7 +323,6 @@ p{ line-height:1.7; font-size:15.5px; }
 }
 .jcard .jstat-lbl{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; text-transform:uppercase; letter-spacing:0.05em; opacity:0.6; margin-top:2px; }
 .jcard p.jstat-caption{ font-size:11.5px; opacity:0.55; font-style:italic; margin-top:-2px; }
-.jcard .tagrow{ margin-top:16px; }
 
 .empty{
   border:1.5px dashed var(--purple); border-radius:18px; padding:40px; text-align:center; color:var(--ink);
