@@ -31,6 +31,12 @@ architecture-reasoning demo rather than a real quote.
 Evaluation Framework — not part of the static site itself. See its own
 [README](rag-eval/README.md) for what it does and how to run it.
 
+`index.html` loads `css/style.css` and `js/main.js` with a `?v=N` cache-busting query
+string. GitHub Pages' CDN caches assets aggressively, so **bump that version number any
+time you edit `css/style.css` or `js/main.js`** — otherwise returning visitors can end up
+with a stale copy of one file paired with a fresh copy of the other, which breaks in
+confusing ways (e.g. new HTML/JS rendering against old CSS rules).
+
 ## Local preview
 
 Open `index.html` directly in a browser, or serve the folder:
