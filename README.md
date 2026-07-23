@@ -27,6 +27,10 @@ The cost generator is a static, client-side estimator: it uses simplified public
 pricing baked into `cost-generator.js`, not a live pricing API, and is meant as an
 architecture-reasoning demo rather than a real quote.
 
+`rag-eval/` is a separate, self-contained Python project — Project 02, the RAG
+Evaluation Framework — not part of the static site itself. See its own
+[README](rag-eval/README.md) for what it does and how to run it.
+
 ## Local preview
 
 Open `index.html` directly in a browser, or serve the folder:

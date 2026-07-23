@@ -1,0 +1,107 @@
+[
+  {
+    "id": "q01",
+    "question": "When is the Fall semester application deadline?",
+    "answerable": true,
+    "relevant_sections": ["Admissions and Enrollment"],
+    "expected_answer": "Fall semester applications are due by March 1."
+  },
+  {
+    "id": "q02",
+    "question": "How much is the enrollment deposit and when is it due?",
+    "answerable": true,
+    "relevant_sections": ["Admissions and Enrollment"],
+    "expected_answer": "A non-refundable deposit of $250 is due within 30 days of receiving an admission offer."
+  },
+  {
+    "id": "q03",
+    "question": "When does Spring Break occur?",
+    "answerable": true,
+    "relevant_sections": ["Academic Calendar"],
+    "expected_answer": "Spring Break is a one-week recess in March, during the Spring semester."
+  },
+  {
+    "id": "q04",
+    "question": "What is the last day to drop a Fall semester course without penalty?",
+    "answerable": true,
+    "relevant_sections": ["Academic Calendar"],
+    "expected_answer": "The end of the second week of classes in the Fall semester."
+  },
+  {
+    "id": "q05",
+    "question": "What GPA scale does the university use, and what grade is needed to satisfy a major prerequisite?",
+    "answerable": true,
+    "relevant_sections": ["Grading and Assessment"],
+    "expected_answer": "A 4.0 grade point scale; a grade of C- or above is required to satisfy major prerequisites."
+  },
+  {
+    "id": "q06",
+    "question": "How long does a student have to complete incomplete coursework before it converts to an F?",
+    "answerable": true,
+    "relevant_sections": ["Grading and Assessment"],
+    "expected_answer": "One semester; after that the incomplete grade automatically converts to an F."
+  },
+  {
+    "id": "q07",
+    "question": "Are individual instructors allowed to set their own attendance policy?",
+    "answerable": true,
+    "relevant_sections": ["Attendance Policy"],
+    "expected_answer": "Yes, instructors set their own attendance policies in their syllabi, and these are binding once published."
+  },
+  {
+    "id": "q08",
+    "question": "What is the FAFSA priority filing deadline?",
+    "answerable": true,
+    "relevant_sections": ["Financial Aid and Tuition"],
+    "expected_answer": "February 15 for the following academic year."
+  },
+  {
+    "id": "q09",
+    "question": "What GPA must a merit scholarship recipient maintain to keep the scholarship?",
+    "answerable": true,
+    "relevant_sections": ["Financial Aid and Tuition"],
+    "expected_answer": "A minimum cumulative GPA of 3.0, with full-time enrollment status."
+  },
+  {
+    "id": "q10",
+    "question": "What body investigates suspected Honor Code violations?",
+    "answerable": true,
+    "relevant_sections": ["Code of Conduct"],
+    "expected_answer": "The Office of Student Conduct reports to a hearing panel composed of faculty and student representatives."
+  },
+  {
+    "id": "q11",
+    "question": "Is tutoring through the Academic Success Center free?",
+    "answerable": true,
+    "relevant_sections": ["Student Support Services"],
+    "expected_answer": "Yes, tutoring is free for undergraduate students."
+  },
+  {
+    "id": "q12",
+    "question": "How many credit hours are required to graduate, and what minimum GPA is required?",
+    "answerable": true,
+    "relevant_sections": ["Graduation Requirements"],
+    "expected_answer": "A minimum of 120 credit hours and an overall cumulative GPA of at least 2.0."
+  },
+  {
+    "id": "q13",
+    "question": "What is the cost of a campus parking permit?",
+    "answerable": false,
+    "relevant_sections": [],
+    "expected_answer": "The handbook does not cover parking permit costs."
+  },
+  {
+    "id": "q14",
+    "question": "Does the university require students to live on campus during their first year?",
+    "answerable": false,
+    "relevant_sections": [],
+    "expected_answer": "The handbook does not cover a first-year, on-campus residency requirement."
+  },
+  {
+    "id": "q15",
+    "question": "What is the average class size at Meridian University?",
+    "answerable": false,
+    "relevant_sections": [],
+    "expected_answer": "The handbook does not cover average class size."
+  }
+]

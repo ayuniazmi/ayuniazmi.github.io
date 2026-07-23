@@ -35,6 +35,11 @@ body{
   font-family:'IBM Plex Sans', sans-serif;
 }
 a{ color:var(--purple-deep); text-decoration-thickness: 1.5px; }
+.linklike{
+  background:none; border:none; padding:0; margin:0; font:inherit; color:var(--purple-deep);
+  text-decoration:underline; text-decoration-thickness:1.5px; cursor:pointer; font-weight:600;
+}
+.linklike:hover{ color:var(--pink-deep); }
 ::selection{ background: var(--pink); color:#fff; }
 .wrap{ max-width:880px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
 
